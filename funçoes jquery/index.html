@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>funções jQuery</title>
+
+    <style>
+        .caixa {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+        .encolhido {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+        }
+        button {
+            display: block;
+            margin: 10px 0px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+   
+</head>
+<body>
+    <div id="caixa" class="caixa"></div> <br>
+    <button type="button" id="ocultar">Ocultar</button>
+    <button type="button" id="mostrar">Mostrar</button>
+    <button type="button" id="desvanecer">Desvanecer</button>
+    <button type="button" id="aparecer">Aparecer</button>
+    <button type="button" id="negrito">Meter a negrito</button>
+    <button type="button" id="encolher">Encolher</button>
+    <button type="button" id="tamanhoIn">Tamanho inicial</button>
+    <button type="button" id="remNegrito">Remover negrito</button>
+    <input type="text" id="texto" value="insira aqui um texto">
+    <button type="button" id="inserir">Inserir</button>
+
+    <script type="text/javascript">
+        $("#ocultar").click(function () {
+            //esconder a div
+        $("#caixa").hide();
+        })
+        $("#mostrar").click(function () {
+            //mostrar a div
+            $("#caixa").show();
+        })
+        $("#desvanecer").click(function () {
+            //desvanecer a div
+            $("#caixa").fadeOut('slow');
+        })
+        $("#aparecer").click(function () {
+            //aparecer a div
+            $("#caixa").fadeIn('slow');
+        })
+        $("#negrito").click(function () {
+            //deixar a div em negrito
+            $("#caixa").css('font-weight', 'bold');
+        })
+        $("#encolher").click(function () {
+            //encolher a div
+            $("#caixa").removeClass('caixa');
+            $("#caixa").addClass('encolhido');
+        })
+        $("#tamanhoIn").click(function () {
+            //voltar ao tamanho original
+            $("#caixa").removeClass('encolhido');
+            $("#caixa").addClass('caixa');
+        })
+        $("#remNegrito").click(function () {
+            //tirar o negrito
+            $("#caixa").css('font-weight', '');
+        })
+        $("#inserir").click(function () {
+            //adicionar texto
+            var adTexto = $("#texto").val();
+            $("#caixa").html(adTexto);
+        })
+    </script>
+</body>
+</html>
