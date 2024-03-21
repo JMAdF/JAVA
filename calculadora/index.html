@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+    <script type="text/javascript">
+        
+        function rFinal(c) {
+            var n1 = parseFloat(document.getElementById('num1').value);
+            var n2 = parseFloat(document.getElementById('num2').value);
+            var r;
+
+            switch (c) {
+                case '1':
+                    r = n1 + n2;
+                    break;
+                case '2':
+                    r = n1 - n2;
+                    break;
+                case '3':
+                    r = n1 * n2;
+                    break;
+                case '4':
+                    r = n1 / n2;
+                    break;
+            }
+            document.getElementById('resultado').value = r;
+        }
+        
+    </script>
+</head>
+<body>
+        Numero 1: <input type="number" id='num1'>
+        Numero 2: <input type="number" id='num2'> <br>
+        <button onclick="rFinal('1')">+</button>
+        <button onclick="rFinal('2')">-</button>
+        <button onclick="rFinal('3')">*</button>
+        <button onclick="rFinal('4')">/</button> <br>
+        Resultado: <input type="number" id='resultado' >
+</body>
+</html>
