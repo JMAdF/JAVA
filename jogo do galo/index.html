@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESENVOLVIMENTO DO JOGO DA VELHA</title>
+    <style>
+        .quadrado {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+    </style>
+        
+    <script type="text/javascript">
+        var jogador=1;
+        function jogada(id) {
+            mudarCor(id);
+            trocarJogador();
+        }
+        
+        function mudarCor(caixa) {
+            if (jogador == 1) {
+                caixa.style.backgroundColor = 'blue';
+            } else {
+                caixa.style.backgroundColor = 'red';
+            }
+        }
+
+        function trocarJogador() {
+            if (jogador == 1) {
+                jogador = 0;
+            } else {
+                jogador = 1;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Jogo da velha com cores</h1>
+    <div class="quadrado" onClick="jogada(this)"></div>
+    <div class="quadrado" onClick="jogada(this)"></div> 
+    <div class="quadrado" onClick="jogada(this)"></div><br> 
+    <div class="quadrado" onClick="jogada(this)"></div> 
+    <div class="quadrado" onClick="jogada(this)"></div> 
+    <div class="quadrado" onClick="jogada(this)"></div><br> 
+    <div class="quadrado" onClick="jogada(this)"></div> 
+    <div class="quadrado" onClick="jogada(this)"></div> 
+    <div class="quadrado" onClick="jogada(this)"></div>
+</body>
+</html>
