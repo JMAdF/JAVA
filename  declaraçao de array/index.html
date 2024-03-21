@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DECLARAÇÃO DE ARRAYS E O MÉTODO ALERT()</title>
+    <script type="text/javascript">
+        var novoArray = [];
+        function inserir() {
+            var cTexto = document.getElementById(`texto`).value;
+            if (cTexto != ``) {
+                novoArray += cTexto + ` `; 
+            }
+        }
+        function mostrar() {
+            alert(novoArray);
+        }
+
+    </script>
+</head>
+<body>
+    <form>
+        <textarea name="text" id="texto"> </textarea> </form> <br>
+        <input type="button" value="Inserir texto" onclick="inserir()">
+        <input type="button" value="Mostrar texto" onclick="mostrar()">
+    </form>
+</body>
+</html>
