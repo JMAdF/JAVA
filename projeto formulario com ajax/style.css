@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: #000000;
+    padding-left: 370px;
+    padding-right: 500px;
+    font-size: 20px;
+    position: fixed;
+    text-align: center;
+}
+
+.navbar {
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar a{
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+#noticias {
+    padding-bottom: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    color: white;
+}
+
+.noticias {
+    padding: 100px;
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;
+    align-items: center;
+}
+
+.noticias a {
+    color: white;
+}
+
+#caixa {
+    width: 50%;
+    height: auto;
+    border: solid 1px white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 
+}
+
+#galeria {
+    background-color: #000000;
+    padding: 20%;
+}
+
+#galeria h2 {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.galeria {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+#mapa {
+    background-color: #000000;
+    padding: 20%;
+}
+
+.mapa {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border: solid 1px white;
+    width: 100%;
+    height: 300px;
+    padding: 100px;
+    height: 400px;  
+}
+
+.mapa button {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    background-color: white;
+}
+
+.caixa-orcamento {
+    background-color: #000000;
+    color: white;
+    padding: 250px;
+}
+
+.caixa-orcamento h1 {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.orcamento1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.orcamento2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 50px;
+}
+
+.orcamento2 h2 {
+    padding-bottom: 20px;
+}
+
+.orcamento2 h3 {
+    padding-top: 20px;
+}
+
+.caixa1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    padding: 250px;
+}
+
+.botoes input {
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+}
+
+.rodape {   
+    background-color: white;
+    color: #000000;
+    text-align: center;
+    padding: 15px;
+    letter-spacing: 5px;
+}
+
+.fa-brands {
+    color: #000000;
+    font-size: 20px;
+}

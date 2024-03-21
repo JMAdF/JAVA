@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJETO JAVA SCRIPT</title>
+    <script src="projeto.js"></script>
+    <link rel="stylesheet" href="lightbox2-2.11.3/dist/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"
+      integrity="sha512-rYfWnojxoCs9XlyL7aNSG1eCwBlUnyIpPQzj80mUE6YrkUBW8LRvM9Zi6+mDAm44dj/+p5UafO6UyS0SqvAKzg=="
+      crossorigin=""
+    />
+    <script src="https://kit.fontawesome.com/b58dc075f3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><!--CABEÇALHO-->
+       <div class="navbar" id="navbar">
+            <a href="#noticias">Home</a>
+            <a href="#noticias">Noticias</a>
+            <a href="#galeria">galeria</a>
+            <a href="#mapa">Mapa</a>
+            <a href="#orcamento">Orçamento</a>
+            <a href="#contactos">contactos</a>
+        </div>
+    </header>
+
+    
+    <section id="noticias"> <!--Noticias-->
+        <div class="noticias">
+            <h2>Noticias</h2>
+        <a href="#" onclick="carregar()">Clique para ver as notícias</a>
+        </div>
+        
+        <div id="caixa">
+            As notícias vão ser carregadas nesta caixa.
+        </div>
+      
+    </section> <hr>
+   
+    <section id="galeria"> <!--galeria-->
+        <h2>Galeria Lightbox</h2>
+        
+        <div class="galeria">
+            <a class="example-image-link" href="imagens/lisboa.jpeg" data-lightbox="example-1">
+                <img class="example-image" src="imagens/lisboa.jpeg" alt="image-1" width="440px"/>
+            </a>
+           
+            <a class="example-image-link" href="imagens/londres.jpeg" data-lightbox="example-1">
+                <img class="example-image" src="imagens/londres.jpeg" alt="image-1"width="400px"/>
+            </a>
+           
+            <a class="example-image-link" href="imagens/alemanha.webp" data-lightbox="example-1">
+                <img class="example-image" src="imagens/alemanha.webp" alt="image-1" width="340px"/>
+            </a>
+        </div>
+        
+        <script src="lightbox2-2.11.3/dist/js/lightbox-plus-jquery.min.js"></script>
+
+    </section> <hr>
+
+    <section id="mapa"> <!--mapa-->
+        <h1>Geolocalização e Rota com OpenStreetMap</h1>
+    <div class="mapa">
+      <label for="destination">Qual o destino:</label>
+      <input type="text" id="destination" />
+      <button onclick="calculateRoute()">Calcular Rota</button>
+    </div>
+    <div id="map"></div>
+
+    <script>
+        var fixedLocation = L.latLng(38.733549, -9.141279); //localização da masterD
+        var map = L.map('map').setView(fixedLocation, 13);
+
+        var marker = L.marker(fixedLocation).addTo(map);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        function calculateRoute() {
+            var destination = document.getElementById("destination").value;
+            var url = 'https://nominatim.openstreetmap.org/search?format=json&q=' + destination;
+
+            fetch(url)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (json) {
+                    var lat = json[0].lat;
+                    var lon = json[0].lon;
+
+                    var routeUrl = 'https://www.openstreetmap.org/directions?engine=graphhopper_car&route=' +
+                        fixedLocation.lat + ',' + fixedLocation.lng +
+                        ';' + lat + ',' + lon;
+                    window.open(routeUrl, '_blank');
+                });
+        }
+      </script> 
+    </section> <hr>
+    
+    <section id="orcamento"><!--Formulario de orçamento-->
+            <div class="caixa-orcamento pb-5">
+
+                <h1>Pedido de orçamento:</h1>
+                
+                <div class="orcamento1">
+                    <form action="" method="POST" onchange="calcularorcamento()" name="formulario">
+                
+                                
+                        <td>Tipo de página web:</td>
+                            <select name="tipopagina"  id="tipopagina"required>
+                                <option value="">Selecione uma das opções</option>
+                                <option value="500" id="tipo1">Front-end</option>
+                                <option value="1000" id="tipo2">Back-end</option>
+                                <option value="1500" id="tipo3">Full-Stack</option>
+                            </select>
+                            
+                        <input type="text" id="valor-tipopagina" name="valor-tipopagina" value="" disabled>
+        
+                        <tr>
+                            <td>Prazo em meses:</td>
+                            <td>
+                                <input type="number" id="prazo" onclick="calcularorcamento()">
+                            </td>
+                        </tr>
+                
+                    </form>
+                </div>
+        
+        
+            <div class="orcamento2">
+                <h2>Marque os separadores desejados:</h2>
+            <form id="checkboxGroup">
+              <input type="checkbox" name="checkbox1" value="400" onclick="calcularorcamento()"/>Quem somos <br />
+              <input type="checkbox" name="checkbox2" value="400"  onclick="calcularorcamento()"/> Onde estamos <br />
+              <input type="checkbox" name="checkbox3" value="400"  onclick="calcularorcamento()"/> Galeria de fotografias <br />
+              <input type="checkbox" name="checkbox4" value="400"  onclick="calcularorcamento()"/> eCommerce <br />
+              <input type="checkbox" name="checkbox5" value="400"  onclick="calcularorcamento()"/> Gestão interna <br />
+              <input type="checkbox" name="checkbox5" value="400"  onclick="calcularorcamento()"/> Notícias  <br />
+              <input type="checkbox" name="checkbox5" value="400"  onclick="calcularorcamento()"/> Redes sociais <br />
+        
+            <h3>Orçamento estimado:</h3>
+            <p>(O valor pode sofrer alterações, entre contacto conosco para melhor esclarecimento.)</p>
+            <p id="resultado"></p>
+        </form>
+            </div>
+        
+
+    </section> <hr>
+
+    <section id="contactos"> <!--contactos-->  
+
+        <div class="caixa1">
+            <br>
+            <form action="" method="" id="formulario" name="formulario" onsubmit="return validarContato()">
+                <h3>PREENCHA OS SEGUINTES CAMPOS:</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <h5>NOME:</h5>
+                        </td>
+                        <td style="font-size:20px;">
+                            <input class="textbox" type="text" name="nome" maxlength="50" size="40" id="nome" value="" placeholder="O seu nome" required> *
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>MORADA:</h5>
+                        </td>
+                        <td style="font-size:20px;">
+                            <input class="textbox" type="text" name="morada" maxlength="80" size="40" id="morada" value="" placeholder="A sua morada" required> *
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>TELEMÓVEL:</h5>
+                        </td>
+                        <td style="font-size:20px;">
+                            <input class="textbox" type="text" name="telemovel" maxlength="9" size="9" id="telemovel" value="" placeholder="O seu número de telemóvel" required> *
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <h5>IDADE:</h5>
+                        </td>
+                        <td style="font-size:20px;">
+                            <input class="textbox" type="text" name="idade" maxlength="2" size="9" id="idade" value="" placeholder="A sua idade" required> *
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>E-MAIL:</h5>
+                        </td>
+                        <td style="font-size:20px;">
+                            <input class="textbox" type="text" name="email" maxlength="50" size="40" id="email" value="" placeholder="O seu e-mail" required> *
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>(*) Os campos marcados com um asterisco são obrigatórios.</p>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div class="botoes">
+                    <input type="submit" name="Botao enviar" class="botao cinza" value="ENVIAR">
+                    <input type="reset" name="Botao apagar" class="botao cinza" value="APAGAR">
+                </div>
+            </form>
+            </div>
+
+    </section> <hr>
+
+    <footer class="rodape">
+        <p><a href="https://github.com"><i class="fa-brands fa-github"></i></a>João Márcio &copy;</p>
+    </footer>
+</body>
+</html>
